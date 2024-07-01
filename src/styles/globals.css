@@ -149,3 +149,9 @@ border-style: solid;
 margin: 1rem;
 /* position: relative; */
 }
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+}

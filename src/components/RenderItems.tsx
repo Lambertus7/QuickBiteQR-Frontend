@@ -12,6 +12,10 @@ export const itemValidator = z
     price: z.number(),
     categoryId: z.number().positive(),
     locationId: z.number().positive(),
+    category: z.object({
+      id: z.number(),
+      name: z.string(),
+    }),
   })
   .strict();
 
@@ -59,7 +63,7 @@ export const RenderItem = ({
       <div>
         <img src="https://picsum.photos/200/200" alt={title}></img>
       </div>
-      <p>{categoryId ? "Appetizer" : "Show all Items"}</p>
+      {/* <p>{categoryId ? "Appetizer" : "Show all Items"}</p> */}
       <strong>
         <p>{price}</p>
       </strong>
@@ -70,10 +74,38 @@ export const RenderItem = ({
 const ListofItems = () => {
   const [items, setItems] = useState<Item[]>([]);
   const [error, setErrors] = useState<ZodError | null>(null);
-  const [frequent, setFrequent] = useState<boolean>(false);
-  const [appetizers, setAppetizers] = useState<boolean>(false);
-  const [mainCourse, setMainCourse] = useState<boolean>(false);
-  const [desserts, setDesserts] = useState<boolean>(false);
+  // const [frequent, setFrequent] = useState<boolean>(false);
+  // const [appetizers, setAppetizers] = useState<boolean>(false);
+  // const [mainCourse, setMainCourse] = useState<boolean>(false);
+  // const [desserts, setDesserts] = useState<boolean>(false);
+  const [filter, setFilter] = useState<
+    "all" | "frequent" | "appetizers" | "mainCourse" | "desserts"
+  >("all");
+
+  const filterItem = (item: Item): boolean => {
+    if (filter === "all") {
+      return true;
+    }
+    if (filter === "frequent") {
+      if (item.frequent === true) {
+        return true;
+      }
+    }
+    if (filter === "appetizers") {
+      if (item.category.name === "Appetizer") {
+        return true;
+      }
+    }
+    if (filter === "mainCourse") {
+      if (item.category.name === "Main Course") {
+        return true;
+      }
+    }
+    if (filter === "desserts") {
+      if (item.category.name === "Desserts") return true;
+    }
+    return false;
+  };
 
   useEffect(() => {
     const getItemsFromApi = async () => {
@@ -96,9 +128,9 @@ const ListofItems = () => {
   //   ? items.filter((item) => !item.frequent)
   //   : items;
 
-  const Appetizers = appetizers
-    ? items?.filter((item) => !item.categoryId)
-    : items;
+  // const Appetizers = appetizers
+  //   ? items?.filter((item) => !item.categoryId)
+  //   : items;
 
   if (error !== null) {
     return (
@@ -114,25 +146,38 @@ const ListofItems = () => {
   return (
     <div>
       <h1 className="title">List of Meals:</h1>
-      <button
-        className="appetizer-button"
-        onClick={() => setAppetizers(!appetizers)}
-      >
-        {appetizers ? "Show Appetizers" : "Show all Items"}
-      </button>
-      {Appetizers.length > 0 ? (
-        Appetizers.map((item) => (
-          <RenderItem
-            key={item.id}
-            id={item.id}
-            title={item.title}
-            description={item.description}
-            frequent={item.frequent}
-            price={item.price}
-            imgUrl={item.imgUrl}
-            categoryId={item.categoryId}
-          />
-        ))
+      <div className="filter-buttons">
+        <button className="filterBtn" onClick={() => setFilter("all")}>
+          Show All
+        </button>
+        <button className="filterBtn" onClick={() => setFilter("frequent")}>
+          Frequent Items
+        </button>
+        <button className="filterBtn" onClick={() => setFilter("appetizers")}>
+          Appetizers
+        </button>
+        <button className="filterBtn" onClick={() => setFilter("mainCourse")}>
+          Main Course
+        </button>
+        <button className="filterBtn" onClick={() => setFilter("desserts")}>
+          Desserts
+        </button>
+      </div>
+      {items.length > 0 ? (
+        items
+          .filter(filterItem)
+          .map((item) => (
+            <RenderItem
+              key={item.id}
+              id={item.id}
+              title={item.title}
+              description={item.description}
+              frequent={item.frequent}
+              price={item.price}
+              imgUrl={item.imgUrl}
+              categoryId={item.categoryId}
+            />
+          ))
       ) : (
         <p>Loading items...</p>
       )}

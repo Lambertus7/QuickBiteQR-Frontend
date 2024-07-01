@@ -1,33 +1,151 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #96939B;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+h1 {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+}
+
+h2 {
+    display: flex;
+    flex-direction: column;
+    place-items: center;    
+}
+
+.navbar-container {
+    display: flex;
+    list-style: none;
+    padding: 1rem;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    width: 100%;
+    font-size: 1.1rem;
+    position: relative;
+    top: 0px;
+    background-color: #FAFFD8;
+    z-index: 999;
+    align-items: center;
+}
+
+.navbar-item a,
+.navbar-item button {
+    text-decoration: none;
+    color: black;
+    background: none; /* Remove default button background */
+    border: none; /* Remove default button border */
+    cursor: pointer; /* Add pointer cursor for button */
+    font: inherit; /* Inherit font styles */
+    padding: 0; /* Remove default button padding */
+    outline: none; /* Remove default button outline */
+}
+.login-button {
+    border-style: solid;
+    border-radius: 15px;
+    margin-top: 0.5rem;
+    padding: 4px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: #FAFFD8;
+}
+
+.login-window {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25rem;
+    height: 11rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 30px;
+    background-color: #FAFFD8;
+    box-shadow: 0px 7px 24px 0px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.registry-window {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25rem;
+    height: auto; /* Adjust height to fit content */
+    padding: 2rem; /* Add padding for spacing */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 30px;
+    background-color: #FAFFD8;
+    box-shadow: 0px 7px 24px 0px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.register-button {
+    border-style: solid;
+    border-radius: 15px;
+    margin-top: 0.5rem;
+    padding: 4px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: #FAFFD8;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 1rem; /* Add margin between form groups */
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+}
+
+.form-group input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.errorMsg {
+    color: red;
+    margin-top: 0.5rem;
+    text-align: center; /* Center the error message */
+    font-size: 0.875rem; /* Adjust font size */
+}
+
+.items-page{
+display: flex;
+flex-direction: column;
+max-width: 900px;
+gap: 2rem;
+grid-template-columns: repeat(3, 1fr);
+margin: 0 auto;
+margin-top: 86px;
+/* position: relative; */
+padding: 1rem;
+}
+
+.items-header{
+    display: flex;
+    flex-direction: row;
+}
+
+.items-card{
+border-style: solid;
+margin: 1rem;
+/* position: relative; */
 }

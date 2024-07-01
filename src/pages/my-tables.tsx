@@ -1,12 +1,11 @@
 import Navbar from "@/components/Navbar";
 
-const HomePage = () => {
+const MyTablesPage = () => {
   return (
     <div>
       <Navbar />
-      <h1>Welcome to QuickBite</h1>
+      <h1>Welcome to your Dashboard</h1>
     </div>
   );
 };
-
-export default HomePage;
+export default MyTablesPage;

@@ -155,3 +155,8 @@ margin: 1rem;
     justify-content: center;
     justify-content: space-evenly;
 }
+
+.counter-button {
+    width: 6rem;
+    height: 2rem;
+}

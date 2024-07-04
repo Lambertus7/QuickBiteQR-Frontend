@@ -1,7 +1,18 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { Item, RenderItem } from "@/components/RenderItems";
-import { Card } from "@/components/ui/card";
+import { Item, RenderItem } from "@/components/RenderItem";
+
+// interface Selectors {
+//   currentOrder: number[];
+//   orderUpdater: (val: number[]) => void;
+// }
+
+interface OrderRow {
+  itemId: number;
+  quantity: number;
+}
+
+export type Order = OrderRow[];
 
 const DinePage = () => {
   const router = useRouter();
@@ -10,6 +21,7 @@ const DinePage = () => {
   const [filter, setFilter] = useState<
     "all" | "frequent" | "appetizers" | "mainCourse" | "desserts"
   >("all");
+  const [order, setOrder] = useState<Order>([]);
 
   const filterItem = (item: Item): boolean => {
     if (filter === "all") {
@@ -35,10 +47,12 @@ const DinePage = () => {
     }
     return false;
   };
-
+  const locationId = router.query.location_id;
+  const tableId = router.query.table_id;
   useEffect(() => {
     const getItemsFromApi = async () => {
-      const locationId = router.query.id;
+      const locationId = router.query.location_id;
+      const tableId = router.query.table_id;
       if (!locationId) {
         console.log("ERROR");
         return;
@@ -53,7 +67,11 @@ const DinePage = () => {
   }, [router.query]);
 
   if (!items) {
-    return <p>Loading...</p>;
+    return (
+      <main>
+        <p>Loading...</p>
+      </main>
+    );
   }
 
   //---//
@@ -61,15 +79,26 @@ const DinePage = () => {
   return (
     <div className="items-page">
       <h1>
-        Hello diners! Welcome and enjoy this [Location's] assortment of meals
+        Hello diners of table {tableId}! Welcome and enjoy this {locationId}
+        assortment of meals
       </h1>
+      <p>{JSON.stringify(order)}</p>
+      {/* <button onClick={() => setOrder(addItem(2, order))}>
+        Add item with ID 2
+      </button>
+      <button onClick={() => setOrder(addItem(12, order))}>
+        Add item with ID 12
+      </button>
+      <button onClick={() => setOrder(removeItem(12, order))}>
+        Remove item with ID 12
+      </button> */}
       {/* <p>{filter}</p> */}
       <div className="filter-buttons">
         <button className="filterBtn" onClick={() => setFilter("all")}>
           Show All
         </button>
         <button className="filterBtn" onClick={() => setFilter("frequent")}>
-          Frequent Items
+          Popular Items
         </button>
         <button className="filterBtn" onClick={() => setFilter("appetizers")}>
           Appetizers
@@ -93,7 +122,8 @@ const DinePage = () => {
                 description={item.description}
                 price={item.price}
                 frequent={item.frequent}
-                imgUrl={item.imgUrl}
+                currentOrder={order}
+                orderUpdater={setOrder}
               />
             </div>
           ))}

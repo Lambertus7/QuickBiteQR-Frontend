@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Item, RenderItem } from "@/components/RenderItem";
+import { log } from "console";
 
 // interface Selectors {
 //   currentOrder: number[];
@@ -58,13 +59,39 @@ const DinePage = () => {
         return;
       }
       const response = await fetch(
-        `http://localhost:3001/locations/${locationId}/items`
+        `${process.env.NEXT_PUBLIC_API_URL}/locations/${locationId}/items`
       );
       const data = await response.json();
       setItems(data);
     };
     getItemsFromApi();
   }, [router.query]);
+
+  const submitOrder = async () => {
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/locations/:id/table/:id`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            locationId,
+            tableId,
+            order,
+          }),
+        }
+      );
+      if (response.ok) {
+        console.log("Great Success! Order has been placed!");
+      } else {
+        console.error("Failed to submit order!");
+      }
+    } catch (error) {
+      console.error("Failed to submit order!");
+    }
+  };
 
   if (!items) {
     return (
@@ -94,28 +121,27 @@ const DinePage = () => {
       </button> */}
       {/* <p>{filter}</p> */}
       <div className="filter-buttons">
-        <button className="filterBtn" onClick={() => setFilter("all")}>
+        <button className="button" onClick={() => setFilter("all")}>
           Show All
         </button>
-        <button className="filterBtn" onClick={() => setFilter("frequent")}>
+        <button className="button" onClick={() => setFilter("frequent")}>
           Popular Items
         </button>
-        <button className="filterBtn" onClick={() => setFilter("appetizers")}>
+        <button className="button" onClick={() => setFilter("appetizers")}>
           Appetizers
         </button>
-        <button className="filterBtn" onClick={() => setFilter("mainCourse")}>
+        <button className="button" onClick={() => setFilter("mainCourse")}>
           Main Course
         </button>
-        <button className="filterBtn" onClick={() => setFilter("desserts")}>
+        <button className="button" onClick={() => setFilter("desserts")}>
           Desserts
         </button>
       </div>
       <div className="items-header">
         <ul>
           {items.filter(filterItem).map((item) => (
-            <div className="items-card">
+            <div className="items-card" key={item.title}>
               <RenderItem
-                key={item.title}
                 id={item.id}
                 title={item.title}
                 categoryId={item.categoryId}
@@ -129,6 +155,9 @@ const DinePage = () => {
           ))}
         </ul>
       </div>
+      <button className="button" onClick={submitOrder}>
+        Place Order
+      </button>
     </div>
   );
 };

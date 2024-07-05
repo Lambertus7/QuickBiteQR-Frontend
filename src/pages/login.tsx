@@ -14,7 +14,7 @@ const LoginPage = (props: User) => {
     if (tokenFromStorage !== null) {
       router.push("/");
     }
-  }, []);
+  }, [router]);
 
   const [userName, setUserName] = useState<string>();
   const [passWord, setPassWord] = useState<string>();
@@ -27,7 +27,7 @@ const LoginPage = (props: User) => {
 
     console.log("data", data);
 
-    const response = await fetch("http://localhost:3001/login", {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

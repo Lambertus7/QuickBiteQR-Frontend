@@ -3,6 +3,14 @@ import { useEffect, useState } from "react";
 import { ZodError, z } from "zod";
 import Counter from "./Counter";
 import { Order } from "@/pages/dine/[location_id].tsx/[table_id]";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 export const itemValidator = z
   .object({
@@ -50,14 +58,21 @@ export const RenderItem = ({
   orderUpdater,
 }: RenderItemProps) => {
   return (
-    <div className="list-container" key={title}>
-      <h2>
-        {title} {description}
-      </h2>
-      <strong>
-        <p>{price}</p>
-      </strong>
-      <Counter itemId={id} currentOrder={currentOrder} updater={orderUpdater} />
+    <div className="recipe-card">
+      <div className="item-details">
+        <h2>{title}</h2>
+        <p>{description}</p>
+        <strong>
+          <p>${price.toFixed(2)}</p>
+        </strong>
+      </div>
+      <div className="item-actions">
+        <Counter
+          itemId={id}
+          currentOrder={currentOrder}
+          updater={orderUpdater}
+        />
+      </div>
     </div>
   );
 };

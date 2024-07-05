@@ -65,12 +65,14 @@ const Counter = (props: CounterProps) => {
         {props.currentOrder.find((row) => row.itemId === props.itemId)
           ?.quantity || 0}
       </p>
-      <button className="counter-button" onClick={decrement}>
-        -
-      </button>
-      <button className="counter-button" onClick={increment}>
-        +
-      </button>
+      <div className="counter">
+        <button className="button" onClick={decrement}>
+          -
+        </button>
+        <button className="button" onClick={increment}>
+          +
+        </button>
+      </div>
     </div>
   );
 };

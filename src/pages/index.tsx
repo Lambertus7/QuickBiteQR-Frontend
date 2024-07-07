@@ -5,9 +5,9 @@ const HomePage = () => {
     <div className="landing-page">
       <Navbar />
       <div className="landing-content">
-        <h1>Welcome to QuickBite</h1>
+        <h1 className="landing-header">Welcome to QuickBite</h1>
         <p className="landing-par1">
-          Thank you for choosing QuickBite have fun spreading joy with food!
+          Thank you for choosing QuickBite. Have fun spreading joy with food!
         </p>
         <p className="landing-par2">Created by Brandon Lambertus</p>
         <strong>

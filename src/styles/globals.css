@@ -7,7 +7,7 @@
 body {
     
     font-family: 'Courier New', Courier, monospace;
-    background: url('https://wallpapers.com/images/hd/food-4k-1vrcb0mw76zcg4qf.jpg') no-repeat center center fixed;
+    background: url('https://wallpapers.com/images/featured/cooking-background-dg5u6vitzfnv3mrw.jpg') no-repeat center center fixed;
     background-size: cover;
   }
   
@@ -35,6 +35,7 @@ h2 {
 
 .landing-header{
   margin-bottom: 25px;
+  color: whitesmoke;
 }
 
 
@@ -47,13 +48,14 @@ h2 {
   display: flex;
   place-items: center;
   font-size: 25px;
-  color: black; 
+  color: whitesmoke; 
 }
 
 .landing-par3{
   display: flex;
   justify-content: center;
   font-size: 100px;
+  color: white;
 }
 
 .header-greeting{
@@ -209,8 +211,8 @@ margin: 1rem;
     padding: 16px;
     margin-bottom: 16px;
     background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
-    border-radius: 10px; /* Rounded borders */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for depth */
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   }
   
   .item-details {

@@ -104,7 +104,7 @@ const DinePage = () => {
 
   return (
     <div className="items-page">
-      <h1 className=".header-greeting">
+      <h1 className="header-greeting">
         Hello diners of table {tableId}! Welcome and enjoy this {locationId}
         assortment of meals
       </h1>

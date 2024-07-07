@@ -5,8 +5,9 @@
 }
 
 body {
+    
     font-family: 'Courier New', Courier, monospace;
-    background: url('https://i.pinimg.com/originals/d3/6d/46/d36d462db827833805497d9ea78a1343.jpg') no-repeat center center fixed;
+    background: url('https://wallpapers.com/images/hd/food-4k-1vrcb0mw76zcg4qf.jpg') no-repeat center center fixed;
     background-size: cover;
   }
   
@@ -23,6 +24,38 @@ h2 {
     place-items: center;    
 }
 
+.landing-content{
+  display: flex;
+  flex-direction: column;
+  /* margin-left: 325px;
+  margin-right: 250px; */
+  align-items: center;
+}
+
+
+.landing-par1,
+.landing-par2 {
+  margin-left: 50px;
+  padding-left: 50px;
+  padding: 10px;
+  margin: 10px;
+  margin-left: 325px;
+  margin-right: 325px;
+  display: flex;
+  place-items: center;
+  font-size: 50px;
+  color: black; 
+}
+
+.landing-par3{
+  display: flex;
+  justify-content: center;
+  font-size: 100px;
+}
+
+.header-greeting{
+  color: whitesmoke;
+}
 
 .navbar-container {
     display: flex;
@@ -202,7 +235,7 @@ margin: 1rem;
   }
   
   .button {
-    background-color: #007bff;
+    background-color: #126dce;
     color: white;
     border: none;
     border-radius: 4px;

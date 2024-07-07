@@ -70,26 +70,25 @@ const DinePage = () => {
   const submitOrder = async () => {
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/locations/:id/table/:id`,
+        `${process.env.NEXT_PUBLIC_API_URL}/orders`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            locationId,
-            tableId,
-            order,
+            tableId: Number(tableId),
+            itemIds: order.map((orderItem) => orderItem.itemId),
           }),
         }
       );
       if (response.ok) {
         console.log("Great Success! Order has been placed!");
       } else {
-        console.error("Failed to submit order!");
+        console.error("Failed to submit order!", await response.json());
       }
     } catch (error) {
-      console.error("Failed to submit order!");
+      console.error("Failed to submit order!", error);
     }
   };
 
@@ -105,7 +104,7 @@ const DinePage = () => {
 
   return (
     <div className="items-page">
-      <h1>
+      <h1 className=".header-greeting">
         Hello diners of table {tableId}! Welcome and enjoy this {locationId}
         assortment of meals
       </h1>

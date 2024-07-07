@@ -2,13 +2,18 @@ import Navbar from "@/components/Navbar";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="landing-page">
       <Navbar />
-      <h1>Welcome to QuickBite</h1>
-      <p>
-        Thank you for choosing QuickBiteQR as your source to spread all your
-        delicious recipes at your fine location! QuickBiteQR
-      </p>
+      <div className="landing-content">
+        <h1>Welcome to QuickBite</h1>
+        <p className="landing-par1">
+          Thank you for choosing QuickBite have fun spreading joy with food!
+        </p>
+        <p className="landing-par2">Created by Brandon Lambertus</p>
+        <strong>
+          <p className="landing-par3">☕️</p>
+        </strong>
+      </div>
     </div>
   );
 };

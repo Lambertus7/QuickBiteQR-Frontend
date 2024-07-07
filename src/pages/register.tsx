@@ -15,7 +15,7 @@ const registerUserValidator = z
       .nonempty({ message: "email cannot be left empty" }),
     password: z
       .string()
-      .min(10, { message: "Password must have at least 8 characters" })
+      .min(8, { message: "Password must have at least 8 characters" })
       .nonempty({ message: "Password cannot be left empty" }),
   })
   .strict();

@@ -32,6 +32,7 @@ const DinePage = () => {
     "all" | "frequent" | "appetizers" | "mainCourse" | "desserts"
   >("all");
   const [order, setOrder] = useState<Order>([]);
+  const [confirmationMessage, setConfirmationMessage] = useState<string>("");
 
   const filterItem = (item: Item): boolean => {
     if (filter === "all") {
@@ -109,6 +110,10 @@ const DinePage = () => {
         }
       );
       if (response.ok) {
+        setOrder([]);
+        setConfirmationMessage(
+          "Order has been made! The Chef is now preparing your order!"
+        );
         console.log("Great Success! Order has been placed!");
       } else {
         console.error("Failed to submit order!", await response.json());
@@ -132,7 +137,6 @@ const DinePage = () => {
     <div className="items-page">
       <dialog className="order-dialog" ref={dialogRef} autoFocus>
         <p>{JSON.stringify(order)}</p>
-
         <div className="btn-row">
           <button className="nice-button order-button" onClick={submitOrder}>
             Place Order
@@ -145,10 +149,7 @@ const DinePage = () => {
           </button>
         </div>
       </dialog>
-      <h1 className="header-greeting">
-        Hello diners of table {tableId}! Welcome and enjoy this assortment of
-        meals
-      </h1>
+      <h1 className="header-greeting">Hello diners of table {tableId}!</h1>
       {/* <div className="order-overview">
       </div> */}
       <button

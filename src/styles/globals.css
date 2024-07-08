@@ -27,6 +27,7 @@ h2 {
   display: flex;
   flex-direction: column;
   margin-top: 150px;
+  text-align: center;
   /* margin-left: 325px;
   margin-right: 250px; */
   align-items: center;
@@ -34,11 +35,14 @@ h2 {
 
 .landing-header {
   margin-bottom: 25px;
-  color: #5d8782;
+  color: black;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: #faffd8;
 }
 
-.landing-par1,
-.landing-par2 {
+.landing-par {
   padding: 10px;
   margin: 10px;
   margin-left: 325px;
@@ -46,7 +50,10 @@ h2 {
   display: flex;
   place-items: center;
   font-size: 25px;
-  color: whitesmoke;
+  font-weight: bold;
+  color: black;
+  background-color: #faffd8;
+  border-radius: 10px;
 }
 
 .landing-par3 {
@@ -57,7 +64,11 @@ h2 {
 }
 
 .header-greeting {
-  color: whitesmoke;
+  color: black;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .navbar-container {
@@ -79,12 +90,12 @@ h2 {
 .navbar-item button {
   text-decoration: none;
   color: black;
-  background: none; /* Remove default button background */
-  border: none; /* Remove default button border */
-  cursor: pointer; /* Add pointer cursor for button */
-  font: inherit; /* Inherit font styles */
-  padding: 0; /* Remove default button padding */
-  outline: none; /* Remove default button outline */
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  outline: none;
 }
 .login-button {
   border-style: solid;
@@ -120,7 +131,7 @@ h2 {
   align-items: center;
   width: 25rem;
   height: auto; /* Adjust height to fit content */
-  padding: 2rem; /* Add padding for spacing */
+  padding: 2rem;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -173,7 +184,7 @@ h2 {
   gap: 2rem;
   grid-template-columns: repeat(3, 1fr);
   margin: 0 auto;
-  margin-top: 86px;
+  margin-top: 2px;
   /* position: relative; */
   padding: 1rem;
   /* padding-bottom: 12rem; */

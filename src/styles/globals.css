@@ -1,30 +1,29 @@
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-    
-    font-family: 'Courier New', Courier, monospace;
-    background: url('https://wallpapers.com/images/featured/cooking-background-dg5u6vitzfnv3mrw.jpg') no-repeat center center fixed;
-    background-size: cover;
-  }
-  
+  font-family: "Courier New", Courier, monospace;
+  background: url("https://wallpapers.com/images/featured/cooking-background-dg5u6vitzfnv3mrw.jpg")
+    no-repeat center center fixed;
+  background-size: cover;
+}
 
 h1 {
-    display: flex;
-    flex-direction: column;
-    place-items: center;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
 }
 
 h2 {
-    display: flex;
-    flex-direction: column;
-    place-items: center;    
+  display: flex;
+  flex-direction: column;
+  place-items: center;
 }
 
-.landing-content{
+.landing-content {
   display: flex;
   flex-direction: column;
   margin-top: 150px;
@@ -33,11 +32,10 @@ h2 {
   align-items: center;
 }
 
-.landing-header{
+.landing-header {
   margin-bottom: 25px;
   color: #5d8782;
 }
-
 
 .landing-par1,
 .landing-par2 {
@@ -48,248 +46,277 @@ h2 {
   display: flex;
   place-items: center;
   font-size: 25px;
-  color: whitesmoke; 
+  color: whitesmoke;
 }
 
-.landing-par3{
+.landing-par3 {
   display: flex;
   justify-content: center;
   font-size: 100px;
   color: white;
 }
 
-.header-greeting{
+.header-greeting {
   color: whitesmoke;
 }
 
 .navbar-container {
-    display: flex;
-    list-style: none;
-    padding: 1rem;
-    justify-content: space-between;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    width: 100%;
-    font-size: 1.1rem;
-    position: relative;
-    top: 0px;
-    background-color: #FAFFD8;
-    z-index: 999;
-    align-items: center;
+  display: flex;
+  list-style: none;
+  padding: 1rem;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  width: 100%;
+  font-size: 1.1rem;
+  position: relative;
+  top: 0px;
+  background-color: #faffd8;
+  z-index: 999;
+  align-items: center;
 }
 
 .navbar-item a,
 .navbar-item button {
-    text-decoration: none;
-    color: black;
-    background: none; /* Remove default button background */
-    border: none; /* Remove default button border */
-    cursor: pointer; /* Add pointer cursor for button */
-    font: inherit; /* Inherit font styles */
-    padding: 0; /* Remove default button padding */
-    outline: none; /* Remove default button outline */
+  text-decoration: none;
+  color: black;
+  background: none; /* Remove default button background */
+  border: none; /* Remove default button border */
+  cursor: pointer; /* Add pointer cursor for button */
+  font: inherit; /* Inherit font styles */
+  padding: 0; /* Remove default button padding */
+  outline: none; /* Remove default button outline */
 }
 .login-button {
-    border-style: solid;
-    border-radius: 15px;
-    margin-top: 0.5rem;
-    padding: 4px;
-    padding-left: 25px;
-    padding-right: 25px;
-    background-color: #FAFFD8;
+  border-style: solid;
+  border-radius: 15px;
+  margin-top: 0.5rem;
+  padding: 4px;
+  padding-left: 25px;
+  padding-right: 25px;
+  background-color: #faffd8;
 }
 
 .login-window {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 25rem;
-    height: 11rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 30px;
-    background-color: #FAFFD8;
-    box-shadow: 0px 7px 24px 0px rgba(0, 0, 0, 0.1);
-    z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25rem;
+  height: 11rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 30px;
+  background-color: #faffd8;
+  box-shadow: 0px 7px 24px 0px rgba(0, 0, 0, 0.1);
+  z-index: 1;
 }
 
 .registry-window {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 25rem;
-    height: auto; /* Adjust height to fit content */
-    padding: 2rem; /* Add padding for spacing */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 30px;
-    background-color: #FAFFD8;
-    box-shadow: 0px 7px 24px 0px rgba(0, 0, 0, 0.1);
-    z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25rem;
+  height: auto; /* Adjust height to fit content */
+  padding: 2rem; /* Add padding for spacing */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 30px;
+  background-color: #faffd8;
+  box-shadow: 0px 7px 24px 0px rgba(0, 0, 0, 0.1);
+  z-index: 1;
 }
 
 .register-button {
-    border-style: solid;
-    border-radius: 15px;
-    margin-top: 0.5rem;
-    padding: 4px;
-    padding-left: 25px;
-    padding-right: 25px;
-    background-color: #FAFFD8;
+  border-style: solid;
+  border-radius: 15px;
+  margin-top: 0.5rem;
+  padding: 4px;
+  padding-left: 25px;
+  padding-right: 25px;
+  background-color: #faffd8;
 }
 
 .form-group {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-bottom: 1rem; /* Add margin between form groups */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 1rem; /* Add margin between form groups */
 }
 
 .form-group label {
-    margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .form-group input {
-    padding: 0.5rem;
-    font-size: 1rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
 .errorMsg {
-    color: red;
-    margin-top: 0.5rem;
-    text-align: center; /* Center the error message */
-    font-size: 0.875rem; /* Adjust font size */
+  color: red;
+  margin-top: 0.5rem;
+  text-align: center; /* Center the error message */
+  font-size: 0.875rem; /* Adjust font size */
 }
 
-.items-page{
-display: flex;
-flex-direction: column;
-max-width: 900px;
-gap: 2rem;
-grid-template-columns: repeat(3, 1fr);
-margin: 0 auto;
-margin-top: 86px;
-/* position: relative; */
-padding: 1rem;
-padding-bottom: 12rem
+.items-page {
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 auto;
+  margin-top: 86px;
+  /* position: relative; */
+  padding: 1rem;
+  /* padding-bottom: 12rem; */
 }
 
-.items-header{
-    display: flex;
-    flex-direction: row;
+.items-header {
+  display: flex;
+  flex-direction: row;
 }
 
-.items-card{
-
-margin: 1rem;
-/* position: relative; */
+.items-card {
+  margin: 1rem;
+  /* position: relative; */
 }
 
 .filter-buttons {
-    display: flex;
-    justify-content: center;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .counter-button {
-    width: 6rem;
-    height: 2rem;
+  width: 6rem;
+  height: 2rem;
 }
 
-
-
 .recipe-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px;
-    margin-bottom: 16px;
-    background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
-    border-radius: 10px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  }
-  
-  .item-details {
-    flex: 1;
-    margin-right: 16px;
-  }
-  
-  .item-details h2 {
-    margin: 0;
-    font-size: 1.5em;
-  }
-  
-  .item-details p {
-    margin: 4px 0;
-  }
-  
-  .item-details strong p {
-    margin: 0;
-    font-size: 1.2em;
-  }
-  
-  .item-actions {
-    display: flex;
-    align-items: center;
-  }
-  
-  .button {
-    background-color: #126dce;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 16px;
-    cursor: pointer;
-    margin: 0 4px;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
-  }
-  
-  .button:hover {
-    background-color: #0056b3;
-  }
-  
-  .button:active {
-    background-color: #004080;
-  }
-  
-  .order-overview {
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 2rem;
-    border-radius: 30px;
-    padding: 2rem;
-    position: fixed;
-    bottom: 0;
-    right: 2rem;
-    width: 25rem;
-    height: 10rem;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
 
-  .order-button {
-    background-color: #126dce;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 16px;
-    cursor: pointer;
-    margin: 10px;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
-  }
-  
-  .order-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .order-button:active {
-    background-color: #004080;
-  }
+.item-details {
+  flex: 1;
+  margin-right: 16px;
+}
+
+.item-details h2 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.item-details p {
+  margin: 4px 0;
+}
+
+.item-details strong p {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.item-actions {
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  background-color: #126dce;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin: 0 4px;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.button:active {
+  background-color: #004080;
+}
+
+.order-overview {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+  border-radius: 30px;
+  padding: 2rem;
+  position: fixed;
+  bottom: 0;
+  right: 2rem;
+  width: 25rem;
+  height: 10rem;
+}
+
+.nice-button {
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin: 10px;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+  color: white;
+}
+
+.close-button {
+  background-color: red;
+}
+
+.order-button {
+  background-color: #126dce;
+}
+
+.order-button:hover {
+  background-color: #0056b3;
+}
+
+.show-button {
+  background-color: #126dce;
+  position: fixed;
+  right: 2rem;
+  bottom: 1rem;
+}
+
+.order-dialog {
+  padding: 10rem;
+  margin: 0px auto;
+  margin-top: 30px;
+  position: fixed;
+  background-color: none;
+  border-width: 0;
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.order-dialog::backdrop {
+  backdrop-filter: blur(7px);
+}
+
+.btn-row {
+  display: flex;
+  gap: 1rem;
+}

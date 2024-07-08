@@ -1,12 +1,8 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Item, RenderItem, itemValidator } from "@/components/RenderItem";
 import { log } from "console";
 import { number, z } from "zod";
-// interface Selectors {
-//   currentOrder: number[];
-//   orderUpdater: (val: number[]) => void;
-// }
 
 interface OrderRow {
   itemId: number;
@@ -29,6 +25,8 @@ type Table = z.infer<typeof TableValidator>;
 const DinePage = () => {
   const router = useRouter();
 
+  // const [showDialog, setShowDialog] = useState<boolean>(false);
+  const dialogRef = useRef<null | HTMLDialogElement>(null);
   const [table, setTable] = useState<Table | null>(null);
   const [filter, setFilter] = useState<
     "all" | "frequent" | "appetizers" | "mainCourse" | "desserts"
@@ -93,6 +91,8 @@ const DinePage = () => {
     return result;
   };
 
+  const calculateTotalPrice = () => {}; //Create a function to calculate the total amount of price. Display it back in the order-overview.
+
   const submitOrder = async () => {
     try {
       const response = await fetch(
@@ -130,26 +130,33 @@ const DinePage = () => {
 
   return (
     <div className="items-page">
+      <dialog className="order-dialog" ref={dialogRef} autoFocus>
+        <p>{JSON.stringify(order)}</p>
+
+        <div className="btn-row">
+          <button className="nice-button order-button" onClick={submitOrder}>
+            Place Order
+          </button>
+          <button
+            className="nice-button close-button"
+            onClick={() => dialogRef.current?.close()}
+          >
+            close
+          </button>
+        </div>
+      </dialog>
       <h1 className="header-greeting">
         Hello diners of table {tableId}! Welcome and enjoy this assortment of
         meals
       </h1>
-      <div className="order-overview">
-        <p>{JSON.stringify(order)}</p>
-        <button className="order-button" onClick={submitOrder}>
-          Place Order
-        </button>
-      </div>
-      {/* <button onClick={() => setOrder(addItem(2, order))}>
-        Add item with ID 2
+      {/* <div className="order-overview">
+      </div> */}
+      <button
+        className="nice-button show-button"
+        onClick={() => dialogRef.current?.showModal()}
+      >
+        Check & place order
       </button>
-      <button onClick={() => setOrder(addItem(12, order))}>
-        Add item with ID 12
-      </button>
-      <button onClick={() => setOrder(removeItem(12, order))}>
-        Remove item with ID 12
-      </button> */}
-      {/* <p>{filter}</p> */}
       <div className="filter-buttons">
         <button className="button" onClick={() => setFilter("all")}>
           Show All

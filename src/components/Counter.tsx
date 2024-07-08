@@ -1,4 +1,4 @@
-import { Order } from "@/pages/dine/[location_id].tsx/[table_id]";
+import { Order } from "@/pages/dine/[table_id]";
 import { RenderItemProps } from "./RenderItem";
 import { RenderItem } from "./RenderItem";
 

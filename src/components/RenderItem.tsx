@@ -2,7 +2,7 @@ import router from "next/router";
 import { useEffect, useState } from "react";
 import { ZodError, z } from "zod";
 import Counter from "./Counter";
-import { Order } from "@/pages/dine/[location_id].tsx/[table_id]";
+import { Order } from "@/pages/dine/[table_id]";
 import {
   Card,
   CardContent,
@@ -18,10 +18,7 @@ export const itemValidator = z
     title: z.string(),
     description: z.string(),
     frequent: z.boolean(),
-    // imgUrl: z.string().url(),
     price: z.number(),
-    categoryId: z.number().positive(),
-    locationId: z.number().positive(),
     category: z.object({
       id: z.number(),
       name: z.string(),
@@ -35,13 +32,7 @@ export type Item = z.infer<typeof itemValidator>;
 
 export type RenderItemProps = Pick<
   Item,
-  | "title"
-  | "description"
-  | "price"
-  | "frequent"
-  // | "imgUrl"
-  | "id"
-  | "categoryId"
+  "title" | "description" | "price" | "frequent" | "id"
 > & {
   currentOrder: Order;
   orderUpdater: (val: Order) => void;
@@ -53,7 +44,6 @@ export const RenderItem = ({
   description,
   frequent,
   price,
-  categoryId,
   currentOrder,
   orderUpdater,
 }: RenderItemProps) => {

@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { Item, RenderItem } from "@/components/RenderItem";
+import { Item, RenderItem, itemValidator } from "@/components/RenderItem";
 import { log } from "console";
-
+import { number, z } from "zod";
 // interface Selectors {
 //   currentOrder: number[];
 //   orderUpdater: (val: number[]) => void;
@@ -15,10 +15,21 @@ interface OrderRow {
 
 export type Order = OrderRow[];
 
+const TableValidator = z.object({
+  id: z.number().positive().int(),
+  location: z.object({
+    id: z.number().positive().int(),
+    name: z.string(),
+    Item: z.array(itemValidator),
+  }),
+});
+
+type Table = z.infer<typeof TableValidator>;
+
 const DinePage = () => {
   const router = useRouter();
 
-  const [items, setItems] = useState<Item[] | null>(null);
+  const [table, setTable] = useState<Table | null>(null);
   const [filter, setFilter] = useState<
     "all" | "frequent" | "appetizers" | "mainCourse" | "desserts"
   >("all");
@@ -48,24 +59,39 @@ const DinePage = () => {
     }
     return false;
   };
-  const locationId = router.query.location_id;
+
   const tableId = router.query.table_id;
   useEffect(() => {
     const getItemsFromApi = async () => {
-      const locationId = router.query.location_id;
-      const tableId = router.query.table_id;
-      if (!locationId) {
-        console.log("ERROR");
-        return;
-      }
+      if (!tableId) return;
+
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/locations/${locationId}/items`
+        `${process.env.NEXT_PUBLIC_API_URL}/tables/${tableId}`
       );
       const data = await response.json();
-      setItems(data);
+      const validated = TableValidator.safeParse(data);
+      if (!validated.success) {
+        router.push("/");
+        return;
+      }
+      setTable(validated.data);
     };
     getItemsFromApi();
   }, [router.query]);
+
+  const flattenOrder = (order: Order) => {
+    let result = [];
+
+    for (let i = 0; i < order.length; i++) {
+      const item = order[i];
+
+      for (let i = 0; i < item.quantity; i++) {
+        result.push(item.itemId);
+      }
+    }
+
+    return result;
+  };
 
   const submitOrder = async () => {
     try {
@@ -78,7 +104,7 @@ const DinePage = () => {
           },
           body: JSON.stringify({
             tableId: Number(tableId),
-            itemIds: order.map((orderItem) => orderItem.itemId),
+            itemIds: flattenOrder(order),
           }),
         }
       );
@@ -92,7 +118,7 @@ const DinePage = () => {
     }
   };
 
-  if (!items) {
+  if (!table) {
     return (
       <main>
         <p>Loading...</p>
@@ -105,10 +131,15 @@ const DinePage = () => {
   return (
     <div className="items-page">
       <h1 className="header-greeting">
-        Hello diners of table {tableId}! Welcome and enjoy this {locationId}
-        assortment of meals
+        Hello diners of table {tableId}! Welcome and enjoy this assortment of
+        meals
       </h1>
-      <p>{JSON.stringify(order)}</p>
+      <div className="order-overview">
+        <p>{JSON.stringify(order)}</p>
+        <button className="order-button" onClick={submitOrder}>
+          Place Order
+        </button>
+      </div>
       {/* <button onClick={() => setOrder(addItem(2, order))}>
         Add item with ID 2
       </button>
@@ -138,12 +169,11 @@ const DinePage = () => {
       </div>
       <div className="items-header">
         <ul>
-          {items.filter(filterItem).map((item) => (
+          {table.location.Item.filter(filterItem).map((item) => (
             <div className="items-card" key={item.title}>
               <RenderItem
                 id={item.id}
                 title={item.title}
-                categoryId={item.categoryId}
                 description={item.description}
                 price={item.price}
                 frequent={item.frequent}
@@ -154,9 +184,6 @@ const DinePage = () => {
           ))}
         </ul>
       </div>
-      <button className="button" onClick={submitOrder}>
-        Place Order
-      </button>
     </div>
   );
 };

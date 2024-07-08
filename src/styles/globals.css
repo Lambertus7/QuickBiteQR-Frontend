@@ -178,6 +178,7 @@ margin: 0 auto;
 margin-top: 86px;
 /* position: relative; */
 padding: 1rem;
+padding-bottom: 12rem
 }
 
 .items-header{
@@ -259,3 +260,36 @@ margin: 1rem;
     background-color: #004080;
   }
   
+  .order-overview {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+    border-radius: 30px;
+    padding: 2rem;
+    position: fixed;
+    bottom: 0;
+    right: 2rem;
+    width: 25rem;
+    height: 10rem;
+  }
+
+  .order-button {
+    background-color: #126dce;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+  }
+  
+  .order-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .order-button:active {
+    background-color: #004080;
+  }

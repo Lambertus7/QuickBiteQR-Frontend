@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
 import { Item, RenderItem, itemValidator } from "@/components/RenderItem";
-import { log } from "console";
 import { number, z } from "zod";
 
 interface OrderRow {
@@ -24,8 +23,6 @@ type Table = z.infer<typeof TableValidator>;
 
 const DinePage = () => {
   const router = useRouter();
-
-  // const [showDialog, setShowDialog] = useState<boolean>(false);
   const dialogRef = useRef<null | HTMLDialogElement>(null);
   const [table, setTable] = useState<Table | null>(null);
   const [filter, setFilter] = useState<
@@ -84,7 +81,7 @@ const DinePage = () => {
     for (let i = 0; i < order.length; i++) {
       const item = order[i];
 
-      for (let i = 0; i < item.quantity; i++) {
+      for (let j = 0; j < item.quantity; j++) {
         result.push(item.itemId);
       }
     }
@@ -92,7 +89,24 @@ const DinePage = () => {
     return result;
   };
 
-  const calculateTotalPrice = () => {}; //Create a function to calculate the total amount of price. Display it back in the order-overview.
+  const OrderToItems = (order: Order) => {
+    return order.map((orderRow) => {
+      const menuItem = table?.location.Item.find(
+        (item) => item.id === orderRow.itemId
+      );
+      return {
+        name: menuItem?.title || "Unknown Item",
+        quantity: orderRow.quantity,
+      };
+    });
+  };
+
+  const calculateTotalPrice = () => {
+    return order.reduce((total, item) => {
+      const menuItem = table?.location.Item.find((i) => i.id === item.itemId);
+      return total + (menuItem ? menuItem.price * item.quantity : 0);
+    }, 0);
+  };
 
   const submitOrder = async () => {
     try {
@@ -111,10 +125,7 @@ const DinePage = () => {
       );
       if (response.ok) {
         setOrder([]);
-        setConfirmationMessage(
-          "Order has been made! The Chef is now preparing your order!"
-        );
-        console.log("Great Success! Order has been placed!");
+        setConfirmationMessage("Order has been placed!");
       } else {
         console.error("Failed to submit order!", await response.json());
       }
@@ -131,27 +142,52 @@ const DinePage = () => {
     );
   }
 
-  //---//
+  const mappedOrder = OrderToItems(order);
 
   return (
     <div className="items-page">
       <dialog className="order-dialog" ref={dialogRef} autoFocus>
-        <p>{JSON.stringify(order)}</p>
-        <div className="btn-row">
-          <button className="nice-button order-button" onClick={submitOrder}>
-            Place Order
-          </button>
-          <button
-            className="nice-button close-button"
-            onClick={() => dialogRef.current?.close()}
-          >
-            close
-          </button>
-        </div>
+        {confirmationMessage ? (
+          <>
+            <p>{confirmationMessage}</p>
+            <button
+              className="nice-button order-button"
+              onClick={() => {
+                setConfirmationMessage("");
+                dialogRef.current?.close();
+              }}
+            >
+              Place another order
+            </button>
+          </>
+        ) : (
+          <>
+            <ul>
+              {mappedOrder.map((item, index) => (
+                <li key={index}>
+                  {item.name} - Quantity: {item.quantity}
+                </li>
+              ))}
+            </ul>
+            <p>Total Price: ${calculateTotalPrice().toFixed(2)}</p>
+            <div className="btn-row">
+              <button
+                className="nice-button order-button"
+                onClick={submitOrder}
+              >
+                Place Order
+              </button>
+              <button
+                className="nice-button close-button"
+                onClick={() => dialogRef.current?.close()}
+              >
+                close
+              </button>
+            </div>
+          </>
+        )}
       </dialog>
       <h1 className="header-greeting">Hello diners of table {tableId}!</h1>
-      {/* <div className="order-overview">
-      </div> */}
       <button
         className="nice-button show-button"
         onClick={() => dialogRef.current?.showModal()}
@@ -195,4 +231,5 @@ const DinePage = () => {
     </div>
   );
 };
+
 export default DinePage;

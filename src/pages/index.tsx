@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
 const HomePage = () => {
@@ -6,13 +7,12 @@ const HomePage = () => {
       <Navbar />
       <div className="landing-content">
         <h1 className="landing-header">Welcome to QuickBite</h1>
-        <p className="landing-par">
-          Thank you for choosing QuickBite! Created by Brandon Lambertus
-        </p>
+        <p className="landing-par"></p>
         <strong>
           <p className="landing-par3">☕️</p>
         </strong>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -2,6 +2,8 @@ import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
 import { Item, RenderItem, itemValidator } from "@/components/RenderItem";
 import { number, z } from "zod";
+import QRCode from "react-qr-code";
+// import { ReactDOM } from "react-dom";
 
 interface OrderRow {
   itemId: number;
@@ -146,6 +148,7 @@ const DinePage = () => {
 
   return (
     <div className="items-page">
+      {/* <QRCode value="https://www.youtube.com/watch?v=dQw4w9WgXcQ" /> */}
       <dialog className="order-dialog" ref={dialogRef} autoFocus>
         {confirmationMessage ? (
           <>

@@ -9,6 +9,7 @@ body {
   background: url("https://wallpapers.com/images/featured/cooking-background-dg5u6vitzfnv3mrw.jpg")
     no-repeat center center fixed;
   background-size: cover;
+  /* margin: 0px; */
 }
 
 h1 {
@@ -23,6 +24,14 @@ h2 {
   place-items: center;
 }
 
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* margin-bottom: 0px; */
+  /* padding-bottom: 0px; */
+}
+
 .landing-content {
   display: flex;
   flex-direction: column;
@@ -31,6 +40,7 @@ h2 {
   /* margin-left: 325px;
   margin-right: 250px; */
   align-items: center;
+  flex-grow: 1;
 }
 
 .landing-header {
@@ -330,4 +340,22 @@ h2 {
 .btn-row {
   display: flex;
   gap: 1rem;
+}
+
+.footerContent {
+  background-color: #faffd8;
+  padding: 0.5rem;
+  /* margin: 10px; */
+}
+
+.LinkedIn {
+  font-style: none;
+}
+
+.linkedin-logo {
+  max-width: 20px;
+}
+
+.sponsor {
+  list-style: none;
 }

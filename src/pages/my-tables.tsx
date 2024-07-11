@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import QRCode from "react-qr-code";
 
 const MyTablesPage = () => {
-  // THis needs an interface
+  // This needs an interface
   const [tables, setTables] = useState<any[]>([]);
   const router = useRouter();
 

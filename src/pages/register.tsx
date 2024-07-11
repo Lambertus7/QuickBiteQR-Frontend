@@ -3,6 +3,8 @@ import Navbar from "@/components/Navbar";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import Footer from "@/components/Footer";
+import { useState } from "react";
 
 const registerUserValidator = z
   .object({
@@ -53,7 +55,7 @@ const RegistryPage = () => {
 
   return (
     <>
-      <div className="">
+      <div className="page-container">
         <Navbar />
         <form
           onSubmit={handleSubmit(handleRegistrySubmit)}
@@ -74,7 +76,7 @@ const RegistryPage = () => {
           <label htmlFor="password">Password</label>
           <input
             id="password"
-            type="password"
+            type={"password"}
             {...register("password")}
           ></input>
           <strong className="errorMsg">
@@ -86,6 +88,7 @@ const RegistryPage = () => {
           </button>
         </form>
       </div>
+      <Footer />
     </>
   );
 };

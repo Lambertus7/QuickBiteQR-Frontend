@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div className="footerContent">
       <p className="footerP">
-        Made by caffeinated Brandon Lambertus
+        Made with coffee as main source of fuel ☕️
         {/* <Link
           className="LinkedIn"
           href="https://www.linkedin.com/in/brandon-lambertus-13491823a"

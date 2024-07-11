@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 import { Item, RenderItem, itemValidator } from "@/components/RenderItem";
 import { number, z } from "zod";
 import QRCode from "react-qr-code";
-// import { ReactDOM } from "react-dom";
 
 interface OrderRow {
   itemId: number;

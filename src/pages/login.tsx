@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { useRouter } from "next/router";
 import { FormEvent, useEffect, useState } from "react";
@@ -41,32 +42,35 @@ const LoginPage = (props: User) => {
     }
   };
   return (
-    <div className="login-page">
-      <Navbar />
-      <form className="login-window" onSubmit={onSubmit}>
-        <h1>Login</h1>
-        <label>Email</label>
-        <input
-          type="text"
-          required={true}
-          onChange={(event) => setUserName(event.target.value)}
-          value={userName}
-          className="input"
-          name="email"
-        />
-        <label>Password</label>
-        <input
-          type="password"
-          required={true}
-          value={passWord}
-          onChange={(event) => setPassWord(event.target.value)}
-          className="input"
-          name="password"
-        />
-        <button type="submit" className="login-button">
-          Login
-        </button>
-      </form>
+    <div className="page-container">
+      <div className="login-page">
+        <Navbar />
+        <form className="login-window" onSubmit={onSubmit}>
+          <h1>Login</h1>
+          <label>Email</label>
+          <input
+            type="text"
+            required={true}
+            onChange={(event) => setUserName(event.target.value)}
+            value={userName}
+            className="input"
+            name="email"
+          />
+          <label>Password</label>
+          <input
+            type="password"
+            required={true}
+            value={passWord}
+            onChange={(event) => setPassWord(event.target.value)}
+            className="input"
+            name="password"
+          />
+          <button type="submit" className="login-button">
+            Login
+          </button>
+        </form>
+      </div>
+      {/* <Footer /> */}
     </div>
   );
 };

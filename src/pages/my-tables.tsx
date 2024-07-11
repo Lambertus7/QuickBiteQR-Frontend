@@ -33,8 +33,8 @@ const MyTablesPage = () => {
       <div className="tables-view">
         {tables.map((table) => {
           return (
-            <div className="table-block">
-              <p key={table.name}>{table.name}</p>
+            <div key={table.name} className="table-block">
+              <p>{table.name}</p>
 
               <QRCode
                 className="qr-code"

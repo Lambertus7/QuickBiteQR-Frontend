@@ -168,6 +168,19 @@ h2 {
   background-color: #faffd8;
 }
 
+.social-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.social-icons .icon {
+  margin: 0 10px;
+  font-size: 24px;
+  color: rgb(50, 10, 138);
+}
+
 .form-group {
   display: flex;
   flex-direction: column;

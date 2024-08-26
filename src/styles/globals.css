@@ -129,7 +129,7 @@ h2 {
   justify-content: center;
   align-items: center;
   width: 25rem;
-  height: 15rem;
+  height: 16rem;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -166,6 +166,11 @@ h2 {
   padding-left: 25px;
   padding-right: 25px;
   background-color: #faffd8;
+}
+
+.forgotpassword-link {
+  margin: 5px;
+  margin-top: 14px;
 }
 
 .social-icons {

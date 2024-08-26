@@ -68,6 +68,9 @@ const LoginPage = (props: User) => {
           <button type="submit" className="login-button">
             Login
           </button>
+          <a href="#" className="forgotpassword-link">
+            Forgot password?
+          </a>
           <div className="social-icons">
             <a href="#" className="icon">
               <i className="fa-brands fa-linkedin"></i>

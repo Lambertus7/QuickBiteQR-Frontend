@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Item, RenderItem, itemValidator } from "@/components/RenderItem";
 import { number, z } from "zod";
 import QRCode from "react-qr-code";
+import TicTacToe from "@/components/Tictactoe";
 
 interface OrderRow {
   itemId: number;
@@ -25,6 +26,7 @@ type Table = z.infer<typeof TableValidator>;
 const DinePage = () => {
   const router = useRouter();
   const dialogRef = useRef<null | HTMLDialogElement>(null);
+  const tictactoeDialogRef = useRef<null | HTMLDialogElement>(null);
   const [table, setTable] = useState<Table | null>(null);
   const [filter, setFilter] = useState<
     "all" | "frequent" | "appetizers" | "mainCourse" | "desserts"
@@ -188,12 +190,27 @@ const DinePage = () => {
           </>
         )}
       </dialog>
+      <dialog className="tictactoe-dialog" ref={tictactoeDialogRef} autoFocus>
+        <TicTacToe />
+        <button
+          className="nice-button close-button"
+          onClick={() => tictactoeDialogRef.current?.close()}
+        >
+          Close
+        </button>
+      </dialog>
       <h1 className="header-greeting">Hello diners of table {tableId}!</h1>
       <button
         className="nice-button show-button"
         onClick={() => dialogRef.current?.showModal()}
       >
         Check & place order
+      </button>
+      <button
+        className="nice-button tictactoebutton"
+        onClick={() => tictactoeDialogRef.current?.showModal()}
+      >
+        Play TicTacToe
       </button>
       <div className="filter-buttons">
         <button className="button" onClick={() => setFilter("all")}>

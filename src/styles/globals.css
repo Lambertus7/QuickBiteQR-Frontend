@@ -326,6 +326,21 @@ h2 {
   color: white;
 }
 
+.history-button {
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin: 10px;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+  color: white;
+  background-color: #126dce;
+  position: fixed;
+  right: 3rem;
+  bottom: 3.5rem;
+}
+
 .close-button {
   background-color: red;
 }
@@ -361,6 +376,23 @@ h2 {
 .order-dialog::backdrop {
   backdrop-filter: blur(7px);
 }
+
+/* .history-dialog {
+  padding: 10rem;
+  margin: 0px auto;
+  margin-top: 30px;
+  position: fixed;
+  background-color: none;
+  border-width: 0;
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.history-dialog::backdrop {
+  backdrop-filter: blur(7px);
+} */
 
 .btn-row {
   display: flex;

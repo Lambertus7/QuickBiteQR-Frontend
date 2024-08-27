@@ -27,11 +27,13 @@ const DinePage = () => {
   const router = useRouter();
   const dialogRef = useRef<null | HTMLDialogElement>(null);
   const tictactoeDialogRef = useRef<null | HTMLDialogElement>(null);
+  const historyDialogRef = useRef<null | HTMLDialogElement>(null);
   const [table, setTable] = useState<Table | null>(null);
   const [filter, setFilter] = useState<
     "all" | "frequent" | "appetizers" | "mainCourse" | "desserts"
   >("all");
   const [order, setOrder] = useState<Order>([]);
+  const [orderHistory, setOrderHistory] = useState<Order>([]);
   const [confirmationMessage, setConfirmationMessage] = useState<string>("");
 
   const filterItem = (item: Item): boolean => {
@@ -147,6 +149,25 @@ const DinePage = () => {
 
   const mappedOrder = OrderToItems(order);
 
+  const OrderHistory = async () => {
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/orders`);
+      if (response.ok) {
+        const data = await response.json();
+        setOrderHistory(data);
+      } else {
+        console.error("Failed to fetch order history");
+      }
+    } catch (error) {
+      console.error("Error fetching order history", error);
+    }
+  };
+
+  const ShowOrderHistory = () => {
+    OrderHistory();
+    historyDialogRef.current?.showModal();
+  };
+
   return (
     <div className="items-page">
       <dialog className="order-dialog" ref={dialogRef} autoFocus>
@@ -199,7 +220,15 @@ const DinePage = () => {
           Close
         </button>
       </dialog>
+      <dialog
+        className="history-dialog"
+        ref={historyDialogRef}
+        autoFocus
+      ></dialog>
       <h1 className="header-greeting">Hello diners of table {tableId}!</h1>
+      <button className="nice-button history-button" onClick={ShowOrderHistory}>
+        History
+      </button>
       <button
         className="nice-button show-button"
         onClick={() => dialogRef.current?.showModal()}

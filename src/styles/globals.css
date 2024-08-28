@@ -490,7 +490,7 @@ h2 {
 .cross {
   width: auto;
   height: auto;
-  border-radius: 50%;
+  border-radius: 30%;
   border: solid 15px red;
   position: relative;
   transform: rotate(45deg);

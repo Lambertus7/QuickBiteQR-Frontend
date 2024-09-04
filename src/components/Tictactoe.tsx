@@ -68,9 +68,9 @@ const TicTacToe: React.FC = () => {
       {winner ? (
         <p>{winner} wins!</p>
       ) : cells.every((cell) => cell !== "") ? (
-        <p>It's a draw!</p>
+        <p>It&apos;s a draw!</p>
       ) : (
-        <p>It is now {start}'s go</p>
+        <p>It is now {start}&apos;s go</p>
       )}
       <button onClick={resetGame} className="reset-button">
         Reset Game

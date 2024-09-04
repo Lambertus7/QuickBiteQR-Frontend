@@ -31,7 +31,7 @@ const TicTacToe: React.FC = () => {
   };
 
   const handleMove = (id: number) => {
-    if (cells[id] !== "" || winner) return; // Prevent overwriting or moves after game end
+    if (cells[id] !== "" || winner) return; // Prevents overwriting or moves after the game ends
 
     const newCells = [...cells];
     newCells[id] = start;

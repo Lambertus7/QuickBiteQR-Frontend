@@ -7,7 +7,7 @@ const AdminDashboard = () => {
       <h1>Welcome to the Backroom</h1>
       <ul>
         <li>
-          <a href="admin/mytables"></a>Manage Tables
+          <a href="admin/mytables">Manage Tables</a>
         </li>
         <li>
           <a href="admin/myorders">Manage Orders</a>

@@ -1,7 +1,10 @@
+import Navbar from "@/components/Navbar";
+
 const AdminDashboard = () => {
   return (
     <div className="dashboard-container">
-      <h1>Hello dashboard</h1>
+      <Navbar />
+      <h1>Welcome to the Backroom</h1>
       <ul>
         <li>
           <a href="admin/mytables"></a>Manage Tables

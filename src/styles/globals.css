@@ -559,3 +559,35 @@ h2 {
 .dashboard-sidebar .dash-item a:hover {
   background-color: #495057;
 }
+
+.dashboard-content {
+  flex-grow: 1;
+  padding: 40px;
+  background-color: #ffffff;
+}
+
+.dashboard-content h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #343a40;
+}
+
+.dashboard-content p {
+  font-size: 18px;
+  color: #6c757d;
+}
+
+@media (max-width: 768px) {
+  .dashboard-main {
+    flex-direction: column;
+  }
+
+  .dashboard-sidebar {
+    min-width: 100%;
+    padding: 15px;
+  }
+
+  .dashboard-content {
+    padding: 20px;
+  }
+}

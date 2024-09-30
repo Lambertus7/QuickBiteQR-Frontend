@@ -5,6 +5,13 @@ const AdminDashboard = () => {
   return (
     <div className="dashboard-container">
       <Navbar />
+      {/* <div>
+        <h1>Welcome to the Backroom</h1>
+        <p>
+          Please select an option from the sidebar to manage your restaurant
+          settings
+        </p>
+      </div> */}
       <div className="dashboard-main">
         <div className="dashboard-sidebar">
           <ul>
@@ -19,13 +26,6 @@ const AdminDashboard = () => {
             </li>
           </ul>
         </div>
-      </div>
-      <div>
-        <h1>Welcome to the Backroom</h1>
-        <p>
-          Please select an option from the sidebar to manage your restaurant
-          settings
-        </p>
       </div>
     </div>
   );

@@ -522,3 +522,40 @@ h2 {
   flex-direction: column;
   min-height: 100vh;
 }
+
+.dashboard-main {
+  display: flex;
+  height: 100vh;
+}
+
+.dashboard-sidebar {
+  background-color: #343a40;
+  padding: 20px;
+  min-width: 250px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.dashboard-sidebar .dash-item {
+  margin-bottom: 20px;
+}
+
+.dashboard-sidebar .dash-item a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  display: block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.dashboard-sidebar .dash-item a:hover {
+  background-color: #495057;
+}

@@ -1,8 +1,22 @@
 import Navbar from "@/components/Navbar";
 import { useState } from "react";
+import { json } from "stream/consumers";
 
 const AdminDashboard = () => {
-  const Addtable = () => {};
+  const Addtable = () => {
+    const [name, setName] = useState("");
+    const token = localStorage.getItem("token");
+  };
+
+  const includeTable = async () => {
+    const res = await fetch (`${process.env.NEXT_PUBLIC_API_URL}/tables`, {
+      method: "POST", 
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Content-Type: "application/json", 
+      }, body JSON.stringify({name}),
+    });
+    if (res.ok)
   return (
     <div className="dashboard-container">
       <Navbar />

@@ -50,6 +50,3 @@ const MyTablesPage = () => {
   );
 };
 export default MyTablesPage;
-
-//Next step for this app is to create an admin panel
-//After that it will be changing the colors, making it more professional

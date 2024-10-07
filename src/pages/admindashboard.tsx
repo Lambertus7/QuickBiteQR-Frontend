@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import { useState } from "react";
 
 const AdminDashboard = () => {
+  const Addtable = () => {};
   return (
     <div className="dashboard-container">
       <Navbar />

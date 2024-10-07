@@ -16,7 +16,7 @@ const AdminDashboard = () => {
         Content-Type: "application/json", 
       }, body JSON.stringify({name}),
     });
-    if (res.ok)
+    if (res.ok);
   return (
     <div className="dashboard-container">
       <Navbar />

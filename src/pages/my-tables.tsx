@@ -29,7 +29,7 @@ const MyTablesPage = () => {
   return (
     <>
       <Navbar />
-      <h1>Welcome to your Dashboard</h1>
+      <h1>QR-Codes for your tables</h1>
       <div className="tables-view">
         {tables.map((table) => {
           return (

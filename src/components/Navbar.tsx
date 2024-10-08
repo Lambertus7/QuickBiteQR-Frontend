@@ -19,6 +19,11 @@ const Navbar = () => {
           </li>
           {getToken !== null ? (
             <li className="navbar-item">
+              <Link href="/admindashboard">My Dashboard</Link>
+            </li>
+          ) : null}
+          {getToken !== null ? (
+            <li className="navbar-item">
               <Link href="/my-tables">My Tables</Link>
             </li>
           ) : null}

@@ -2,11 +2,15 @@ import Navbar from "@/components/Navbar";
 import { useState } from "react";
 
 const AdminDashboard = () => {
+  // State to track which section is active (default is "Manage Tables")
   const [activeSection, setActiveSection] = useState<string>("tables");
+
+  // Function to handle switching sections
   const handleSectionClick = (section: string) => {
-    setActiveSection(section);
+    setActiveSection(section); // Update active section state when a button is clicked
   };
 
+  // Function to add a new table (same as before)
   const [name, setName] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -50,35 +54,44 @@ const AdminDashboard = () => {
       <div className="dashboard-main">
         <div className="dashboard-sidebar">
           <ul>
-            <li
-              className={`dash-item ${
-                activeSection === "tables" ? "active" : ""
-              }`}
-              onClick={() => handleSectionClick("tables")}
-            >
-              Manage Tables
+            <li className="dash-item">
+              <button
+                className={`sidebar-btn ${
+                  activeSection === "tables" ? "active" : ""
+                }`}
+                onClick={() => handleSectionClick("tables")}
+              >
+                Manage Tables
+              </button>
             </li>
-            <li
-              className={`dash-item ${
-                activeSection === "orders" ? "active" : ""
-              }`}
-              onClick={() => handleSectionClick("orders")}
-            >
-              Manage Orders
+            <li className="dash-item">
+              <button
+                className={`sidebar-btn ${
+                  activeSection === "orders" ? "active" : ""
+                }`}
+                onClick={() => handleSectionClick("orders")}
+              >
+                Manage Orders
+              </button>
             </li>
-            <li
-              className={`dash-item ${
-                activeSection === "menu" ? "active" : ""
-              }`}
-              onClick={() => handleSectionClick("menu")}
-            >
-              Manage Menu
+            <li className="dash-item">
+              <button
+                className={`sidebar-btn ${
+                  activeSection === "menu" ? "active" : ""
+                }`}
+                onClick={() => handleSectionClick("menu")}
+              >
+                Manage Menu
+              </button>
             </li>
           </ul>
         </div>
 
+        {/* Main content area */}
         <div className="dashboard-content">
           <h1>Admin Dashboard</h1>
+
+          {/* Conditional rendering based on active section */}
           {activeSection === "tables" && (
             <section>
               <h2>Manage Tables</h2>
@@ -112,7 +125,6 @@ const AdminDashboard = () => {
             <section>
               <h2>Manage Orders</h2>
               <p>This is where you can manage orders.</p>
-              {/* Insert order management logic here */}
             </section>
           )}
 
@@ -120,7 +132,6 @@ const AdminDashboard = () => {
             <section>
               <h2>Manage Menu</h2>
               <p>This is where you can manage the menu.</p>
-              {/* Insert menu management logic here */}
             </section>
           )}
         </div>

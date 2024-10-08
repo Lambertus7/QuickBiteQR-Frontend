@@ -208,8 +208,8 @@ h2 {
 .errorMsg {
   color: red;
   margin-top: 0.5rem;
-  text-align: center; /* Center the error message */
-  font-size: 0.875rem; /* Adjust font size */
+  text-align: center;
+  font-size: 0.875rem;
 }
 
 .items-page {
@@ -220,9 +220,7 @@ h2 {
   grid-template-columns: repeat(3, 1fr);
   margin: 0 auto;
   margin-top: 2px;
-  /* position: relative; */
   padding: 1rem;
-  /* padding-bottom: 12rem; */
 }
 
 .items-header {
@@ -232,7 +230,6 @@ h2 {
 
 .items-card {
   margin: 1rem;
-  /* position: relative; */
 }
 
 .filter-buttons {
@@ -252,9 +249,9 @@ h2 {
   align-items: center;
   padding: 16px;
   margin-bottom: 16px;
-  background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .item-details {
@@ -542,39 +539,36 @@ h2 {
   padding: 0;
 }
 
-.dashboard-sidebar .dash-item {
-  margin-bottom: 20px;
+.dash-item {
+  margin-bottom: 15px;
 }
 
-.dashboard-sidebar .dash-item a {
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 18px;
-  display: block;
-  padding: 10px 20px;
+.sidebar-btn {
+  width: 100%;
+  padding: 12px 20px;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 16px;
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
 
-.dashboard-sidebar .dash-item a:hover {
-  background-color: #495057;
+.sidebar-btn:hover {
+  background-color: #005bb5;
 }
 
-.dashboard-content {
-  flex-grow: 1;
-  padding: 40px;
-  background-color: #ffffff;
+.sidebar-btn.active {
+  background-color: #003e7e;
+  font-weight: bold;
 }
 
-.dashboard-content h1 {
-  font-size: 36px;
-  margin-bottom: 20px;
-  color: #343a40;
-}
-
-.dashboard-content p {
-  font-size: 18px;
-  color: #6c757d;
+.sidebar-btn:focus,
+.sidebar-btn:active {
+  outline: none;
+  background-color: #005bb5;
 }
 
 @media (max-width: 768px) {

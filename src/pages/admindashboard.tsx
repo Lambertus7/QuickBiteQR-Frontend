@@ -2,15 +2,12 @@ import Navbar from "@/components/Navbar";
 import { useState } from "react";
 
 const AdminDashboard = () => {
-  // State to track which section is active (default is "Manage Tables")
   const [activeSection, setActiveSection] = useState<string>("tables");
 
-  // Function to handle switching sections
   const handleSectionClick = (section: string) => {
-    setActiveSection(section); // Update active section state when a button is clicked
+    setActiveSection(section);
   };
 
-  // Function to add a new table (same as before)
   const [name, setName] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -50,7 +47,6 @@ const AdminDashboard = () => {
   return (
     <div className="dashboard-container">
       <Navbar />
-
       <div className="dashboard-main">
         <div className="dashboard-sidebar">
           <ul>
@@ -86,12 +82,8 @@ const AdminDashboard = () => {
             </li>
           </ul>
         </div>
-
-        {/* Main content area */}
         <div className="dashboard-content">
           <h1>Admin Dashboard</h1>
-
-          {/* Conditional rendering based on active section */}
           {activeSection === "tables" && (
             <section>
               <h2>Manage Tables</h2>

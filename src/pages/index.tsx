@@ -7,7 +7,9 @@ const HomePage = () => {
       <Navbar />
       <div className="landing-content">
         <h1 className="landing-header">Welcome to QuickBite</h1>
-        <p className="landing-par"></p>
+        <p className="landing-par">
+          Simplifying restaurant management for busy owners
+        </p>
         <strong>
           <p className="landing-par3"></p>
         </strong>

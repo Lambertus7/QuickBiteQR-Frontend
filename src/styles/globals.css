@@ -45,11 +45,11 @@ h2 {
 
 .landing-header {
   margin-bottom: 25px;
-  color: black;
+  color: whitesmoke;
   margin: 1rem;
   padding: 1rem;
   border-radius: 12px;
-  background-color: #faffd8;
+  background-color: #343a40;
 }
 
 .landing-par {
@@ -61,8 +61,8 @@ h2 {
   place-items: center;
   font-size: 25px;
   font-weight: bold;
-  color: black;
-  background-color: #faffd8;
+  color: whitesmoke;
+  background-color: #343a40;
   border-radius: 10px;
 }
 
@@ -91,7 +91,7 @@ h2 {
   font-size: 1.1rem;
   position: relative;
   top: 0px;
-  background-color: #faffd8;
+  background-color: #343a40;
   z-index: 999;
   align-items: center;
 }
@@ -99,7 +99,7 @@ h2 {
 .navbar-item a,
 .navbar-item button {
   text-decoration: none;
-  color: black;
+  color: whitesmoke;
   background: none;
   border: none;
   cursor: pointer;
@@ -146,7 +146,7 @@ h2 {
   justify-content: center;
   align-items: center;
   width: 25rem;
-  height: auto; /* Adjust height to fit content */
+  height: auto;
   padding: 2rem;
   position: absolute;
   top: 50%;
@@ -191,7 +191,7 @@ h2 {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-bottom: 1rem; /* Add margin between form groups */
+  margin-bottom: 1rem;
 }
 
 .form-group label {

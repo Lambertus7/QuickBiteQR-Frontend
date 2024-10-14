@@ -83,7 +83,7 @@ const AdminDashboard = () => {
           </ul>
         </div>
         <div className="dashboard-content">
-          <h1>Admin Dashboard</h1>
+          <h3>Admin Dashboard</h3>
           {activeSection === "tables" && (
             <section>
               <h2>Manage Tables</h2>
@@ -133,3 +133,5 @@ const AdminDashboard = () => {
 };
 
 export default AdminDashboard;
+
+//Make the Dashboard look nice

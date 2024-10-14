@@ -20,3 +20,5 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+//Get rid of the navbar and the homepage itself willl have all of the links. Maybe even a button that says "Get Started" that takes the user to the registering page.
